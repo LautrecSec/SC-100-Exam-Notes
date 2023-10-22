@@ -16,3 +16,9 @@
 | CAF | A documentation and implementation framework for best practices throughout the cloud adoption lifecycle, providing a step-by-step approach to cloud migration and management using Azure. | When you are looking to create and implement business and technology strategies for the cloud. | Cloud architects, IT professionals, and Business decision makers | Organizations who need technical guidance for Microsoft Azure | Best practices, documentation, and tools |
 | WAF | A framework designed to help customers build secure, high-performing, resilient, and efficient infrastructure for their applications and workloads in Azure, using five pillars: cost optimization, operational excellence, performance efficiency, reliability, and security. | When you are looking to improve the quality of a cloud workload. | Cloud architects, IT professionals | All | Azure Well-Architected Review, Azure Advisor, Documentation, Partners, Support, and Services Offers, Reference architectures, Design principles |
 
+### Guiding principles of Zero Trust
+
+* Verify explicitly - Always authenticate and authorize based on all available data points, including user identity, location, device health, service or workload, data classification, and anomalies.
+* Use least privileged access - Limit user access with just-in-time (JIT) and just-enough-access (JEA), risk-based adaptive polices, and data protection to protect both data and productivity.
+* Assume breach - Minimize blast radius and segment access. Verify end-to-end encryption and use analytics to get visibility, drive threat detection, and improve defenses.
+

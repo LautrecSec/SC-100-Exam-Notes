@@ -14,3 +14,82 @@ D. regulatory compliance standards in Microsoft Defender for Cloud
 
 Answer : C
 
+Question 2
+You have Microsoft Defender for Cloud assigned to Azure management groups.
+You have a Microsoft Sentinel deployment.
+During the triage of alerts, you require additional information about the security events, including suggestions for remediation.
+Which two components can you use to achieve the goal? Each correct answer presents a complete solution.
+NOTE: Each correct selection is worth one point.
+A. Microsoft Sentinel threat intelligence workbooks
+B. Microsoft Sentinel notebooks
+C. threat intelligence reports in Defender for Cloud
+D. workload protections in Defender for Cloud
+
+
+Answer : AC
+
+A: Workbooks provide insights about your threat intelligence
+Workbooks provide powerful interactive dashboards that give you insights into all aspects of Microsoft Sentinel, and threat intelligence is no exception. You can use the built-in Threat Intelligence workbook to visualize key information about your threat intelligence, and you can easily customize the workbook according to your business needs. You can even create new dashboards combining many different data sources so you can visualize your data in unique ways. Since
+Microsoft Sentinel workbooks are based on Azure Monitor workbooks, there is already extensive documentation available, and many more templates.
+C: What is a threat intelligence report?
+Defender for Cloud's threat protection works by monitoring security information from your Azure resources, the network, and connected partner solutions. It analyzes this information, often correlating information from multiple sources, to identify threats.
+Defender for Cloud has three types of threat reports, which can vary according to the attack. The reports available are:
+Activity Group Report: provides deep dives into attackers, their objectives, and tactics.
+Campaign Report: focuses on details of specific attack campaigns.
+Threat Summary Report: covers all of the items in the previous two reports.
+This type of information is useful during the incident response process, where there's an ongoing investigation to understand the source of the attack, the attackerג€™s motivations, and what to do to mitigate this issue in the future.
+Incorrect:
+Not B: When to use Jupyter notebooks
+While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data.
+For example, use notebooks to:
+Perform analytics that aren't provided out-of-the box in Microsoft Sentinel, such as some Python machine learning features
+Create data visualizations that aren't provided out-of-the box in Microsoft Sentinel, such as custom timelines and process trees
+Integrate data sources outside of Microsoft Sentinel, such as an on-premises data set.
+Not D: Defender for Cloud offers security alerts that are powered by Microsoft Threat Intelligence. It also includes a range of advanced, intelligent, protections for your workloads. The workload protections are provided through Microsoft Defender plans specific to the types of resources in your subscriptions. For example, you can enable Microsoft Defender for Storage to get alerted about suspicious activities related to your Azure Storage accounts.
+Reference:
+https://docs.microsoft.com/en-us/azure/sentinel/understand-threat-intelligence https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction https://docs.microsoft.com/en-us/azure/defender-for-cloud/threat-intelligence-reports https://docs.microsoft.com/en-us/azure/sentinel/notebooks
+
+Question 3
+A customer is deploying Docker images to 10 Azure Kubernetes Service (AKS) resources across four Azure subscriptions.
+You are evaluating the security posture of the customer.
+You discover that the AKS resources are excluded from the secure score recommendations.
+You need to produce accurate recommendations and update the secure score.
+Which two actions should you recommend in Microsoft Defender for Cloud? Each correct answer presents part of the solution.
+NOTE: Each correct selection is worth one point.
+A. Enable Defender plans.
+B. Configure auto provisioning.
+C. Add a workflow automation.
+D. Assign regulatory compliance policies.
+E. Review the inventory.
+
+
+Answer : BD
+
+D: How are regulatory compliance standards represented in Defender for Cloud?
+Industry standards, regulatory standards, and benchmarks are represented in Defender for Cloud's regulatory compliance dashboard. Each standard is an initiative defined in Azure Policy.
+To see compliance data mapped as assessments in your dashboard, add a compliance standard to your management group or subscription from within the
+Security policy page.
+When you've assigned a standard or benchmark to your selected scope, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments.
+B: Configure Defender for Containers components
+If you disabled any of the default protections when you enabled Microsoft Defender for Containers, you can change the configurations and reenable them via auto provisioning.
+1. To configure the Defender for Containers components:
+2. Sign in to the Azure portal.
+3. Navigate to Microsoft Defender for Cloud > Environment settings.
+4. Select the relevant subscription.
+5. From the left side tool bar, select Auto provisioning.
+6. Ensure that Microsoft Defenders for Containers components (preview) is toggled to On.
+
+
+
+Incorrect:
+Not A: When you enable Microsoft Defender for Containers, Azure Kubernetes Service clusters, and Azure Arc enabled Kubernetes clusters (Preview) protection are both enabled by default.
+To upgrade to Microsoft Defender for Containers, open the Defender plans page in the portal and enable the new plan:
+
+
+Not C: No need for automation.
+Note: Automate responses to Microsoft Defender for Cloud triggers.
+Every security program includes multiple workflows for incident response. These processes might include notifying relevant stakeholders, launching a change management process, and applying specific remediation steps. Security experts recommend that you automate as many steps of those procedures as you can.
+Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
+Reference:
+https://docs.microsoft.com/en-us/azure/defender-for-cloud/update-regulatory-compliance-packages https://docs.microsoft.com/en-us/azure/defender-for-cloud/workflow-automation
+
