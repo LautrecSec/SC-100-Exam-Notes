@@ -93,3 +93,53 @@ Automation reduces overhead. It can also improve your security by ensuring the p
 Reference:
 https://docs.microsoft.com/en-us/azure/defender-for-cloud/update-regulatory-compliance-packages https://docs.microsoft.com/en-us/azure/defender-for-cloud/workflow-automation
 
+Question 4
+Your company has an office in Seattle.
+The company has two Azure virtual machine scale sets hosted on different virtual networks.
+The company plans to contract developers in India.
+You need to recommend a solution provide the developers with the ability to connect to the virtual machines over SSL from the Azure portal. The solution must meet the following requirements:
+✑ Prevent exposing the public IP addresses of the virtual machines.
+✑ Provide the ability to connect without using a VPN.
+✑ Minimize costs.
+Which two actions should you perform? Each correct answer presents part of the solution.
+NOTE: Each correct selection is worth one point.
+A. Create a hub and spoke network by using virtual network peering.
+B. Deploy Azure Bastion to each virtual network.
+C. Deploy Azure Bastion to one virtual network.
+D. Create NAT rules and network rules in Azure Firewall.
+E. Enable just-in-time VM access on the virtual machines.
+
+
+Answer : AC
+
+Azure Bastion is deployed to a virtual network and supports virtual network peering. Specifically, Azure Bastion manages RDP/SSH connectivity to VMs created in the local or peered virtual networks.
+Note: Azure Bastion is a service you deploy that lets you connect to a virtual machine using your browser and the Azure portal. The Azure Bastion service is a fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software.
+Incorrect:
+Not B: Two Azure Bastions would increase the cost.
+Reference:
+https://docs.microsoft.com/en-us/azure/bastion/bastion-overview
+
+Question 5
+HOTSPOT -
+You are designing security for a runbook in an Azure Automation account. The runbook will copy data to Azure Data Lake Storage Gen2.
+You need to recommend a solution to secure the components of the copy process.
+What should you include in the recommendation for each component? To answer, select the appropriate options in the answer area.
+NOTE: Each correct selection is worth one point.
+Hot Area:
+
+
+
+Answer : 
+
+Box 1: Azure Web Application Firewall with network service tags
+A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules.
+You can use service tags to define network access controls on network security groups, Azure Firewall, and user-defined routes.
+Incorrect:
+* Not Azure private link with network service tags
+Network service tags are not used with Private links.
+Box 2: Automation Contributor built-in role
+The Automation Contributor role allows you to manage all resources in the Automation account, except modifying other user's access permissions to an
+Automation account.
+Reference:
+https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview https://docs.microsoft.com/en-us/azure/automation/automation-role-based-access-control
+
