@@ -143,3 +143,14 @@ Automation account.
 Reference:
 https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview https://docs.microsoft.com/en-us/azure/automation/automation-role-based-access-control
 
+Question 6
+You have Windows 11 devices and Microsoft 365 E5 licenses.
+You need to recommend a solution to prevent users from accessing websites that contain adult content such as gambling sites.
+What should you include in the recommendation?
+A. Compliance Manager
+B. Microsoft Defender for Cloud Apps
+C. Microsoft Endpoint Manager
+D. Microsoft Defender for Endpoint
+
+
+
