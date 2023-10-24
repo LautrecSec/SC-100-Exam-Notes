@@ -152,5 +152,30 @@ B. Microsoft Defender for Cloud Apps
 C. Microsoft Endpoint Manager
 D. Microsoft Defender for Endpoint
 
+Answer : D
+
+Web content filtering is part of the Web protection capabilities in Microsoft Defender for Endpoint. It enables your organization to track and regulate access to websites based on their content categories. Many of these websites, while not malicious, might be problematic because of compliance regulations, bandwidth usage, or other concerns.
+Note: Turn on web content filtering
+From the left-hand navigation in Microsoft 365 Defender portal, select Settings > Endpoints > General > Advanced Features. Scroll down until you see the entry for Web content filtering. Switch the toggle to On and Save preferences.
+Configure web content filtering policies
+Web content filtering policies specify which site categories are blocked on which device groups. To manage the policies, go to Settings > Endpoints > Web content filtering (under Rules).
+Reference:
+https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/web-content-filtering
+
+Question 7
+Your company has a Microsoft 365 E5 subscription.
+The company plans to deploy 45 mobile self-service kiosks that will run Windows 10.
+You need to provide recommendations to secure the kiosks. The solution must meet the following requirements:
+✑ Ensure that only authorized applications can run on the kiosks.
+✑ Regularly harden the kiosks against new threats.
+Which two actions should you include in the recommendations? Each correct answer presents part of the solution.
+NOTE: Each correct selection is worth one point.
+A. Implement Automated investigation and Remediation (AIR) in Microsoft Defender for Endpoint.
+B. Onboard the kiosks to Microsoft intune and Microsoft Defender for Endpoint.
+C. Implement threat and vulnerability management in Microsoft Defender for Endpoint.
+D. Onboard the kiosks to Azure Monitor.
+E. Implement Privileged Access Workstation (PAW) for the kiosks.
+
+
 
 
