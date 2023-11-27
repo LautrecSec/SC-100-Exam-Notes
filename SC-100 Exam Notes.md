@@ -1,24 +1,207 @@
-## SC-100 Exam Notes
+SC-100 Exam Notes
 
-### Introduction to Zero Trust and best practice frameworks
 
-**Learning Objectives**
-* Understand how to use best practices as a cybersecurity architect
-* Understand the concept of Zero Trust and how it can be used to modernize an organizations cybersecurity
-* 
 
-| Framework | Summary | When to use | Audience | Organizations | Materials |
-| --- | --- | --- | --- | --- | --- |
-| Zero Trust RaMP initiatives | Zero Trust guide based on initiatives designed to provide quick wins in high-impact areas. Plans organized chronologically and identify key stakeholders. | When you want to get started with Zero Trust and make progress quickly. | Cloud architects, IT professionals, and Business decision makers | Early stage cloud and Zero Trust adopters | Project plans with checklists |
-| Zero Trust deployment objectives | Zero Trust guide with detailed configuration steps for each of the technology pillars. More comprehensive than RaMP initiatives. | When you want a more comprehensive guide on rolling out Zero Trust. | Cloud architects, IT professionals | Organizations who have made some progress with Zero Trust and want detailed guidance to make the most out of the technology. | Deployment plans with primary and secondary objectives. |
-| MCRA | The MCRA is a set of diagrams that includes many best practices related to the access control modernization initiative in Zero Trust RaMP | When you want: a starting template for a security architecture, a comparison reference for security capabilities, to learn about Microsoft capabilities, to learn about Microsoft's integration investments | Cloud architects, IT professionals | Early stage cloud and zero trust adopters | PowerPoint slides with diagrams |
-| MCSB | A framework for assessing the security posture of an organization's cloud environment against industry standards and best practices. | Looking for guidance on how to implement security controls and monitor them for compliance. | Cloud architects, IT professionals | All | Detailed specifications of controls and service baselines |
-| CAF | A documentation and implementation framework for best practices throughout the cloud adoption lifecycle, providing a step-by-step approach to cloud migration and management using Azure. | When you are looking to create and implement business and technology strategies for the cloud. | Cloud architects, IT professionals, and Business decision makers | Organizations who need technical guidance for Microsoft Azure | Best practices, documentation, and tools |
-| WAF | A framework designed to help customers build secure, high-performing, resilient, and efficient infrastructure for their applications and workloads in Azure, using five pillars: cost optimization, operational excellence, performance efficiency, reliability, and security. | When you are looking to improve the quality of a cloud workload. | Cloud architects, IT professionals | All | Azure Well-Architected Review, Azure Advisor, Documentation, Partners, Support, and Services Offers, Reference architectures, Design principles |
+Resources
 
-### Guiding principles of Zero Trust
 
-* Verify explicitly - Always authenticate and authorize based on all available data points, including user identity, location, device health, service or workload, data classification, and anomalies.
-* Use least privileged access - Limit user access with just-in-time (JIT) and just-enough-access (JEA), risk-based adaptive polices, and data protection to protect both data and productivity.
-* Assume breach - Minimize blast radius and segment access. Verify end-to-end encryption and use analytics to get visibility, drive threat detection, and improve defenses.
+Microsoft Study Guide: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWVbXN
+
+
+John Savil’s cram video: https://www.youtube.com/watch?v=2Qu5gQjNQh4 
+
+
+
+Zero Trust
+
+For a deeper understanding: https://www.youtube.com/watch?v=hhS8VdGnfOU
+
+Perimeter security is dead!
+Traditional corporate intranets islands are no more.  SaaS, PaaS and IaaS mean many services are in the cloud and there’s an expectation that people can work from anywhere.
+You cannot think of the corporate intranet as a security perimeter anymore.
+
+
+Verify explicitly: For every single aspect you need to verify every access explicitly every time. The user, the device, the session.
+Implement least privilege: Lock down to minimum permissions and access required to limit lateral movement. Limit permissions to users for only privilege they need and only when they need to do it.
+Assume breach. Assume you have been or will be hacked. This means you have to validate the traffic constantly as resources are accessed.  Logs should be collected as signals and fed into systems to look for anomalies which may indicate compromise, exfiltration or abuse.
+
+
+Identity
+
+Look at MFA features for different Azure AD pricing tiers https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-licensing
+
+FREE - security defaults only. Block legacy authentication. Password list options
+
+P1 - All MFA available. Conditional Access
+
+P2: Identity protection, Privileged Identity Management (PIM)
+
+
+Defender for Identity - puts agents on on-prem domain controllers, ADDS, ADFS
+
+Azure AD Connect - replicate ADDS to Az AD. This allows Identity protection to work if you allow hash of the hash syncing
+
+Azure AD B2B - allows business partners Az AD access to your Az AD
+
+Azure AD B2C - allows customers to use social identities to access apps
+
+
+Endpoints
+
+Mass of different devices. Computers, mobile devices, IoT.
+
+Want the ability to register or join devices to Az AD to drive capabilities to manage.
+
+
+Microsoft Endpoint Manager (MEM)
+
+This is the combination of two products Microsoft Intune (cloud devices) and System Centre Configuration Manager (for on-prem devices and servers)
+MEM allows you to pick and choose if you use Intune or SCCM to manage
+MEM allows policies for compliance, can be fed back into conditional access
+MEM allows : Compliance Policies, Conditional Access, Configuration profiles
+
+Defender for Endpoint
+
+Is for: Protecting, Detecting, Responding
+Can discover endpoints that arent managed. Linux, MacOS, iOS and Android
+Defender will feed data into MEM if there’s been a breach or a known attack detected
+Disable USB, stop lateral movment, disable macros, signatures, cloud based ML. run threats on online sandboxes (like virustotal?)
+
+Defender for Servers
+
+Adaptive application hardening *uses machine learning to figure out what is normal behaviour
+File Integrity Monitoring (FIM)
+Defender for Servers has Adaptive Network Hardening, will give you recommendations on what you can lock down
+
+Network
+
+Don't trust it! No auth based on IPs
+Microsegmentation
+Use Network Security Groups (NSGs). These are then attached to vnets. NSGs are Layer 4
+Use adaptive network hardening
+Azure Firewall. Powerful, can inspect layer 7, the whole URL. can do TLS inspection by man-in-the-middling traffic
+AzFirewall can integrate with Azure Front Door, which is global. TLS offload, it does WAF. Custom rules to block certain types of traffic.
+Application Gateway, which is a single region will got WAF and L7 rules too
+DDoS protection - standard SKU to link to vlans
+Create service endpoints within a subnet, still public but more direct
+Clients talking to services
+
+Create Private endpoints over the private link service. Public IP can then be disabled, but can be accessed by S2S, Express Route or other Az vnets
+Services talking to endpoints
+
+Vnet integration . Can run within vnet, no need for Public IP
+AKS. - Adds sidecar to the pods to to pod-to-pod communication, can do traffic shaping, access policies.
+
+Infrastructure
+
+Defender for Cloud (used to be Azure Security Centre)
+There’s Defender for _______ (most services)
+Cloud posture and compliance and recommendations
+Can add standards for specific regulations for compliance and then get recommendations. Subscription must be enabled + enhanced.
+Advanced detections can be added per service.
+Can also talk to AWS and Google Cloud
+Azure Policy
+Guard rail for azure.  
+Defender will use Azure policy for fixing/enforcing policies
+On Windows, will use DSC, on Linux will use Chef
+Can create a blueprint to group RG, RBAC, template and then stamp it onto a subscription
+Encryption at Rest
+Platform managed key (Azure manages the key for you, rotates, ect. Transparent to user)
+Azure Customer Managed Key (controlled by customer)
+Azure Keyvault will have support for Az Customer Managed Keys
+Can use a hardware HSM
+Gen2 VMs have virtual TPMs, lets you use Trusted Launch
+Confidential Compute - memory and CPU are encrypted. AMD SKUs , or Intel can use Enclave
+
+Least Privilege
+
+RBAC
+Just In-Time access
+PIM (required P2) means you need to get approval for elevated permissions, and only have them for a limited time
+AAD
+ARM
+For on-prem AD DS , you can use Privileged Access Management (PAM) . Bastion Forest, uses same SID, get a role for a certain amount of time.
+Managed Identities for Az resources.  
+User Assigned Identities (useful if farm of resources need same access)
+
+
+Accessing VMs
+
+Azure Bastion , is a managed jump-box service. Can be used via web portal , or with native tools. RDP or SSH.  Can integrate with JIT which will modify the NSG from the Bastion host into the VM.  This is a Defender for Server feature only
+
+Azure ARC
+
+Allows you to extend the Azure ARM control plane to other clouds, or to on-prem
+ARC for Servers, ARC for Kubernetes, +Postgres, Hyperscale, AI
+Allows you to extend Azure Defender for Cloud into other Clouds
+
+
+Defender for Cloud Apps
+
+Feeds from Az Ad, network devices and hook into SaaS
+Can put in session controls to make users go via reverse proxy to go to SaaS app
+It can discover what your doing
+Can discover SaaS apps and give you risks and allow you to block it
+
+DevOps
+
+Github Advanced security feature
+Depender bot
+Finds vulnerabilities in code
+Finds secret keys in repos
+Data
+
+Microsoft Purview
+Will discover data across your environment and make you classify it
+Classify with labels
+Based on labels it will give you information protection
+Will give you data lineage
+Recommend the user classification of office data
+SQL DB
+Data masking
+TDE
+SQL Always Encrypted
+
+Protecting against Ransomware
+
+Azure Backup: Requires a PIN
+Multi-user authorization. This is a resource guard. Someone else needs to give you a permission to do the action
+
+SIEM/ SOAR
+
+Security Incident Event Man / Security Orchestration Automation and Response  
+
+This is Azure Sentinel which sits on top of a Log Analytics Workspace (LAW)
+Needs Connectors
+Azure
+AAD
+M365
+SYSLOG
+Custom
+Detect: uses KQL
+Fusion uses ML
+Hunting: KQL queries you can execute to find, discover, maybe act on
+Intelligence: signals for bad threats, bad IPs
+Investigate: timeline view, investigation graph
+trigger/event or action
+Playbooks: uses logic apps
+
+Onboarding a VM onto Microsoft Defender for Endpoint
+
+https://www.youtube.com/watch?v=hx47uBBUi4o
+
+
+Landing Zones
+
+https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/
+
+
+Microsoft Defender
+
+https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction
+
+Follow interactive tutorial
+
+
+Know what the Azure policy effects are: https://docs.microsoft.com/en-us/azure/governance/policy/concepts/effects#disabled
 
