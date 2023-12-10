@@ -2,15 +2,9 @@ SC-100 Exam Notes
 
 
 
-Resources
-
-
-Microsoft Study Guide: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWVbXN
-
+Resources:
 
 John Savil’s cram video: https://www.youtube.com/watch?v=2Qu5gQjNQh4 
-
-
 
 Zero Trust
 
