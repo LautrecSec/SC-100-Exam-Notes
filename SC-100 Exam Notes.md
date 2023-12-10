@@ -205,3 +205,8 @@ Follow interactive tutorial
 
 Know what the Azure policy effects are: https://docs.microsoft.com/en-us/azure/governance/policy/concepts/effects#disabled
 
+
+
+
+
+
