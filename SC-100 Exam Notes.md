@@ -10,14 +10,40 @@ Zero Trust
 
 For a deeper understanding: https://www.youtube.com/watch?v=hhS8VdGnfOU
 
-Perimeter security is dead!
-Traditional corporate intranets islands are no more.  SaaS, PaaS and IaaS mean many services are in the cloud and there’s an expectation that people can work from anywhere.
-You cannot think of the corporate intranet as a security perimeter anymore.
+### Microsoft Cybersecurity Reference Architecture (MCRA)
+Zero Trust Rapid Modernization Plan (RaMP)
+Top Priorities:  
+**User access and productivity**
+1. Explicitly validate trust for all access requests
+- Identities
+- Endpoints (devices)
+- Apps
+- Network
 
+**Data, compliance, and governance**
 
-Verify explicitly: For every single aspect you need to verify every access explicitly every time. The user, the device, the session.
-Implement least privilege: Lock down to minimum permissions and access required to limit lateral movement. Limit permissions to users for only privilege they need and only when they need to do it.
-Assume breach. Assume you have been or will be hacked. This means you have to validate the traffic constantly as resources are accessed.  Logs should be collected as signals and fed into systems to look for anomalies which may indicate compromise, exfiltration or abuse.
+2. Ransomware recovery readiness
+3. Data
+
+**Modernize security operations:
+4. Streamline response
+5. Unify visibility
+6. Reduce manual effort
+
+**As needed**
+Additional initiatives based on Operational Technology (OT) or IoT usage, on-premises and cloud adoption, and security for in-house app development
+** OT and Industrial IoT**:
+- Discover
+- Protect
+- Monitor
+
+** Datacenter & DevOps Security**:
+- Security hygiene
+- Reduce legacy risk
+- DevOps integration
+- Microsegmentation
+
+__________________________________________
 
 
 Identity
