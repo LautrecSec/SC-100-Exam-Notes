@@ -11,6 +11,12 @@ Zero Trust
 For a deeper understanding: https://www.youtube.com/watch?v=hhS8VdGnfOU
 
 ### Microsoft Cybersecurity Reference Architecture (MCRA)
+The MCRA provides a comprehensive blueprint for implementing Microsoft's security technologies. It serves as a detailed guide to help organizations plan and implement a holistic cybersecurity strategy using Microsoft's security solutions. Key aspects include:
+
+### Microsoft Cloud Security Benchmark (MCSB)
+The MCSB is a set of security best practices and recommendations specifically for securing cloud resources in Microsoft Azure. It acts as a benchmark for cloud security. Key aspects include:
+
+
 Zero Trust Rapid Modernization Plan (RaMP)
 Top Priorities:  
 **User access and productivity**
