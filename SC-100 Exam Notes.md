@@ -25,7 +25,7 @@ Top Priorities:
 2. Ransomware recovery readiness
 3. Data
 
-**Modernize security operations:
+**Modernize security operations**
 4. Streamline response
 5. Unify visibility
 6. Reduce manual effort
@@ -37,7 +37,7 @@ Additional initiatives based on Operational Technology (OT) or IoT usage, on-pre
 - Protect
 - Monitor
 
-** Datacenter & DevOps Security**:
+**Datacenter & DevOps Security:**
 - Security hygiene
 - Reduce legacy risk
 - DevOps integration
