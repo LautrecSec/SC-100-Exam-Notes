@@ -16,6 +16,8 @@ The MCRA provides a comprehensive blueprint for implementing Microsoft's securit
 ### Microsoft Cloud Security Benchmark (MCSB)
 The MCSB is a set of security best practices and recommendations specifically for securing cloud resources in Microsoft Azure. It acts as a benchmark for cloud security. Key aspects include:
 
+Controls for logging and threat detection are controls for detecting threats on the cloud, and enabling, collecting, and storing audit logs for cloud services. These services include enabling detection, investigation, and remediation processes with controls to generate high-quality alerts with native threat detection in cloud services.
+
 
 Zero Trust Rapid Modernization Plan (RaMP)
 Top Priorities:  
